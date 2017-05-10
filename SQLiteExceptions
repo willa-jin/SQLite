@@ -18,3 +18,7 @@ finally:
     # Close the db connection
     db.close()
   
+######
+we used a try/except/finally clause to catch any exception in the code.
+The finally keyword is very important because it always closes the database connection correctly
+######
