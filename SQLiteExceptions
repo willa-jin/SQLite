@@ -22,3 +22,19 @@ finally:
 we used a try/except/finally clause to catch any exception in the code.
 The finally keyword is very important because it always closes the database connection correctly
 ######
+
+
+name1 = 'Andres'
+phone1 = '3366858'
+email1 = 'user@example.com'
+# A very secure password
+password1 = '12345'
+ 
+try:
+    with db:
+        db.execute('''INSERT INTO users(name, phone, email, password)
+                  VALUES(?,?,?,?)''', (name1,phone1, email1, password1))
+except sqlite3.IntegrityError:
+    print('Record already exists')
+finally:
+    db.close()
